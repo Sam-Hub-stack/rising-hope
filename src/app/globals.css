@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #050a11;
+  --color-ink-2: #0a121c;
+  --color-panel: #0d1723;
+  --color-line: #1c2b39;
+  --color-mint: #6ef2c8;
+  --color-mint-dim: #2bb991;
+  --color-coral: #ff9d7c;
+  --color-violet: #b79cff;
+  --color-sky: #79c9ff;
+  --color-ice: #e7f0f5;
+  --color-muted: #8fa7b7;
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-sans: "DM Sans", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ice);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-mint);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #071019;
+}
+::-webkit-scrollbar-thumb {
+  background: #22374a;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #35556d;
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono-tech {
+    font-family: var(--font-mono);
+  }
+  .panel {
+    @apply rounded-2xl border border-white/8 bg-white/[0.035] backdrop-blur-xl;
+  }
+  .panel-strong {
+    @apply rounded-3xl border border-white/10 bg-[#0b1420]/90 backdrop-blur-xl;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-ink shadow-[0_0_28px_-8px_rgba(110,242,200,0.75)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#9dfbd9] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-ice transition-all duration-200 hover:border-mint/60 hover:bg-mint/8 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-muted transition-all duration-200 hover:text-ice disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-ice outline-none transition placeholder:text-muted/60 focus:border-mint/60 focus:bg-mint/[0.05] focus:ring-2 focus:ring-mint/10;
+  }
+  .label {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-muted;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-muted;
+  }
+  .section-kicker {
+    font-family: var(--font-mono);
+    @apply text-[11px] uppercase tracking-[0.28em] text-mint;
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(110, 242, 200, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(110, 242, 200, 0.055) 1px, transparent 1px);
+    background-size: 52px 52px;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-mint via-[#b6ffe6] to-sky bg-clip-text text-transparent;
+  }
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-white/[0.07];
+  }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.55; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-float { animation: float-soft 7s ease-in-out infinite; }
+.animate-ring { animation: pulse-ring 2.6s ease-out infinite; }
+.animate-rise { animation: rise-in 0.65s ease-out both; }
+.animate-marquee { animation: marquee 38s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
