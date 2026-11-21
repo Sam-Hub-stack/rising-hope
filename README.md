@@ -2,7 +2,7 @@
 
 A full-stack, open charity platform for orphans, widows and hospitalised people. Built with Next.js 16 (App Router), React 19, Tailwind CSS 4, Drizzle ORM and PostgreSQL.
 
-> **Live demo:** https://3000-iwxfn0hqicga6plihgb2y.e2b.app  
+> **Live demo:** https://3000-ibkjbwyglwjt7ygc945co.e2b.app  
 > Preview links may rotate after a redeploy. Sign in with `admin@risinghope.org` / `hope2026` to explore the dashboard.
 
 ## Screenshots
