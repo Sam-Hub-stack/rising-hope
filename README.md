@@ -2,6 +2,23 @@
 
 A full-stack, open charity platform for orphans, widows and hospitalised people. Built with Next.js 16 (App Router), React 19, Tailwind CSS 4, Drizzle ORM and PostgreSQL.
 
+> **Live demo:** https://3000-iwxfn0hqicga6plihgb2y.e2b.app  
+> Preview links may rotate after a redeploy. Sign in with `admin@risinghope.org` / `hope2026` to explore the dashboard.
+
+## Screenshots
+
+**Public homepage — campaigns, giving flow and impact stories**
+
+![Rising Hope public homepage](docs/screenshots/homepage.png)
+
+**Dashboard — live impact analytics and season progress**
+
+![Rising Hope dashboard](docs/screenshots/dashboard.png)
+
+**Donations management — searchable CRUD ledger with optimistic updates**
+
+![Rising Hope donations management](docs/screenshots/donations.png)
+
 ## Features
 
 - Public impact site with seasonal campaigns, beneficiary stories, partner micro-banks and a donor leaderboard.
@@ -37,14 +54,16 @@ Set `RESEND_API_KEY` and `EMAIL_FROM` in `.env` to deliver real verification ema
 
 Without an email provider, the app runs in demo mode: verification messages are written to the `email_outbox` table and the verification link is returned to the browser after registration or on resend. Dashboard access requires a verified email in both modes.
 
-## Uploading to GitHub
+## Repository
 
-This repository is initialized locally with an initial commit, but no GitHub credentials are available inside the sandbox, so the push must be authenticated from your machine:
+The project is published at **https://github.com/Sam-Hub-stack/rising-hope** on the `main` branch.
+
+To push future changes:
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-git branch -M main
-git push -u origin main
+git add -A
+git commit -m "Describe your change"
+git push origin main
 ```
 
-Use a personal access token or SSH authentication when prompted. `.env` is gitignored; use `.env.example` as the template.
+Use a personal access token or SSH authentication when prompted. `.env` is gitignored; use `.env.example` as the template. Revoke any token that has been shared in chat.
