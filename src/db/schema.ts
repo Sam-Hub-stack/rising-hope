@@ -40,6 +40,36 @@ export const emailOutbox = pgTable("email_outbox", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+export const assistantConversations = pgTable("assistant_conversations", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  ownerKey: text("owner_key").notNull(),
+  userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
+  title: text("title").notNull().default("New conversation"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const assistantMessages = pgTable("assistant_messages", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  conversationId: uuid("conversation_id")
+    .notNull()
+    .references(() => assistantConversations.id, { onDelete: "cascade" }),
+  role: text("role").notNull(),
+  content: text("content").notNull(),
+  actions: text("actions").notNull().default("[]"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const assistantMemories = pgTable("assistant_memories", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  ownerKey: text("owner_key").notNull().default("global"),
+  label: text("label").notNull(),
+  value: text("value").notNull(),
+  pinned: boolean("pinned").notNull().default(false),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 export const sessions = pgTable("sessions", {
   id: uuid("id").primaryKey().defaultRandom(),
   userId: uuid("user_id")

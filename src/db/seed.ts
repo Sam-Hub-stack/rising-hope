@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { hashPassword } from "@/lib/auth";
 import {
   applications,
+  assistantMemories,
   banks,
   beneficiaries,
   campaigns,
@@ -88,6 +89,15 @@ export async function ensureSeeded() {
         { id: CAMPAIGN_IDS[1], title: "Surgery & Recovery Fund", slug: "surgery-recovery-fund", season: "Season of Hope 2026", summary: "Life-changing operations and aftercare for hospitalised patients who cannot afford treatment.", story: "Hospitalised patients often face the cruelest choice: treatment or feeding their family. This fund covers surgery, medication, transport and three months of follow-up care.", goalCents: 18000000, raisedCents: 12475000, startDate: "2026-03-01", endDate: "2026-10-31", status: "active", accent: "sky", featured: true },
         { id: CAMPAIGN_IDS[2], title: "Classrooms for Orphans", slug: "classrooms-for-orphans", season: "Season of Hope 2026", summary: "School fees, books and safe transport for children who have lost parental care.", story: "Education is the most reliable route out of vulnerability. We sponsor children through primary and secondary school, with guardians receiving weekly check-ins.", goalCents: 12000000, raisedCents: 8960000, startDate: "2026-01-15", endDate: "2026-12-15", status: "active", accent: "amber", featured: true },
         { id: CAMPAIGN_IDS[3], title: "Widow Livelihood Circles", slug: "widow-livelihood-circles", season: "Season of Hope 2026", summary: "Seed capital and training for widows rebuilding independent livelihoods.", story: "Small, patient capital transforms a widow's circumstances. Groups of eight women receive training, a shared savings account and a microbank loan guarantee.", goalCents: 9500000, raisedCents: 7312000, startDate: "2026-04-01", endDate: "2026-11-15", status: "active", accent: "violet", featured: false },
+      ])
+      .onConflictDoNothing();
+
+    await tx
+      .insert(assistantMemories)
+      .values([
+        { id: "90000000-0000-4000-8000-000000000001", ownerKey: "global", label: "Creator", value: "Sam is the creator of J.A.R.V.I.S. and the Rising Hope platform. Refer to Sam with respect as the creator whenever identity is discussed.", pinned: true },
+        { id: "90000000-0000-4000-8000-000000000002", ownerKey: "global", label: "Primary directive", value: "Protect the mission: transparent, community-led giving for orphans, widows and hospitalised people.", pinned: true },
+        { id: "90000000-0000-4000-8000-000000000003", ownerKey: "global", label: "Tone", value: "Calm, precise, warm and faintly witty — never smug. Address the operator professionally.", pinned: false },
       ])
       .onConflictDoNothing();
 

@@ -4,13 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  ArrowUpRight, Banknote, Building2, ChevronLeft, Crown, HandCoins,
+  ArrowUpRight, Banknote, Bot, Building2, ChevronLeft, Crown, HandCoins,
   LayoutDashboard, LogOut, Menu, Sparkles, Star, Users, X,
 } from "lucide-react";
 import { HopeLogo } from "@/components/logo";
 
 const NAV = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
+  { href: "/assistant", label: "Jarvis AI", icon: Bot },
   { href: "/dashboard/donations", label: "Donations", icon: HandCoins },
   { href: "/dashboard/campaigns", label: "Campaigns", icon: Sparkles },
   { href: "/dashboard/beneficiaries", label: "Beneficiaries", icon: Users },

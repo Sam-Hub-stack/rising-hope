@@ -2,7 +2,7 @@
 
 A full-stack, open charity platform for orphans, widows and hospitalised people. Built with Next.js 16 (App Router), React 19, Tailwind CSS 4, Drizzle ORM and PostgreSQL.
 
-> **Live demo:** https://3000-ibkjbwyglwjt7ygc945co.e2b.app  
+> **Live demo:** https://3000-i0ll529r24ryiw9esvqtv.e2b.app  
 > Preview links may rotate after a redeploy. Sign in with `admin@risinghope.org` / `hope2026` to explore the dashboard.
 
 ## Screenshots
@@ -29,6 +29,13 @@ A full-stack, open charity platform for orphans, widows and hospitalised people.
 - Dashboard with sidebar navigation, analytics, and full CRUD for donations, campaigns, beneficiaries, applications, banks and ratings.
 - Optimistic updates, rollback on failure, search, filters, modal forms, empty states and responsive layouts.
 - Automatic demo data seeding on first request.
+- J.A.R.V.I.S. AI command center at `/assistant`: persistent conversations, voice input/output, live mission telemetry, memory CRUD, and Sam encoded as creator.
+
+## J.A.R.V.I.S. AI Command Center
+
+Open `/assistant` for an original JARVIS-style assistant that knows it was created by **Sam** and can report on live Rising Hope data: giving totals, campaigns, partner banks, beneficiaries, membership applications and ratings.
+
+Set `OPENAI_API_KEY` in `.env` to enable live neural responses via OpenAI. Without a key, the assistant uses a built-in local engine — the interface, persistence, voice and intent handling all remain fully functional.
 
 ## Quick start
 

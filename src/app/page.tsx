@@ -45,8 +45,10 @@ export default async function HomePage() {
             <a href="#stories" className="transition hover:text-mint">Stories</a>
             <a href="#banks" className="transition hover:text-mint">Partner banks</a>
             <a href="#membership" className="transition hover:text-mint">Membership</a>
+            <Link href="/assistant" className="transition hover:text-mint">Jarvis AI</Link>
           </nav>
           <div className="flex items-center gap-2">
+            <Link href="/assistant" className="btn-ghost hidden px-3 text-xs sm:inline-flex">AI Command</Link>
             <Link href={user ? "/dashboard" : "/login"} className="btn-ghost hidden px-3 text-xs sm:inline-flex">{user ? "Dashboard" : "Sign in"}</Link>
             <a href="#give" className="btn-primary px-4 py-2 text-xs sm:px-5">Donate now <ArrowRight className="h-3.5 w-3.5" /></a>
           </div>
@@ -310,7 +312,7 @@ export default async function HomePage() {
         <div className="mx-auto grid max-w-[1280px] gap-10 px-5 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div><HopeLogo /><p className="mt-5 max-w-xs text-xs leading-relaxed text-muted">A global, open charity network for orphans, widows and hospitalised people. Registered partner banks. Verifiable impact. Always.</p></div>
           <div><p className="label">Explore</p><div className="space-y-2.5 text-xs text-muted"><a href="#mission" className="block hover:text-mint">Our mission</a><a href="#season" className="block hover:text-mint">Season campaigns</a><a href="#stories" className="block hover:text-mint">Beneficiaries</a><a href="#membership" className="block hover:text-mint">Donor membership</a></div></div>
-          <div><p className="label">Platform</p><div className="space-y-2.5 text-xs text-muted"><Link href="/login" className="block hover:text-mint">Donor sign in</Link><Link href="/register" className="block hover:text-mint">Create account</Link><Link href="/dashboard" className="block hover:text-mint">Impact dashboard</Link><a href="#banks" className="block hover:text-mint">Partner banks</a></div></div>
+          <div><p className="label">Platform</p><div className="space-y-2.5 text-xs text-muted"><Link href="/login" className="block hover:text-mint">Donor sign in</Link><Link href="/register" className="block hover:text-mint">Create account</Link><Link href="/dashboard" className="block hover:text-mint">Impact dashboard</Link><Link href="/assistant" className="block hover:text-mint">Jarvis AI command center</Link><a href="#banks" className="block hover:text-mint">Partner banks</a></div></div>
           <div><p className="label">Stay close</p><p className="text-xs leading-relaxed text-muted">Field notes, season updates and new campaigns — twice a month, never spam.</p><Link href="/register" className="btn-outline mt-4 w-full py-2 text-xs">Join the network</Link></div>
         </div>
         <div className="mx-auto mt-10 flex max-w-[1280px] flex-wrap items-center justify-between gap-3 border-t border-white/8 px-5 pt-6 text-[11px] text-muted sm:px-8">
